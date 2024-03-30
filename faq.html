@@ -11,27 +11,104 @@
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
 			/* Hint: Denk aan de states van het component; deze kan open en dicht zijn */
+
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				padding:  1em;
+			}
+
 			details {
+				margin-bottom: 1em;
+				color: var(--blue);
+
 				& summary {
 					padding: 1em;
 					border: 0.1em solid var(--blue);
-					margin-bottom: 1em;
 					border-radius: 0.5em;
 					font-weight: 500;
 					cursor: pointer;
 					display: inline-block;
-					position: relative;
-
-					& ::before {
-						content: "+";
-						color: var(--blue);
-						width: 1em;
-						height: 1em;
-						position: absolute;
-						top: 0;
-						left: -1em;
-					}
 				}
+
+				& summary::before {
+					content: "+";
+					margin-right: 0.5em;
+					font-size: 1em;
+					font-weight: 500;
+					transition: 0.3s ease;
+				}
+
+				& p {
+					border-radius: 0.5em;
+					padding: 1em;
+					width: 45em;
+					font-weight: 500;
+					border-top-left-radius: 0;
+				}
+			}
+
+			details[open]:nth-of-type(1) {
+				& summary {
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				& summary::before {
+					animation-name: rotate;
+					animation-duration: 1s;
+					animation-fill-mode: forwards;
+				}
+
+				& summary, p {
+					background-color: var(--purple);
+					border: 0.1em solid var(--purple);
+				}
+			}
+
+			details[open]:nth-of-type(2) {
+				& summary {
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				& summary::before {
+					animation-name: rotate;
+					animation-duration: 1s;
+					animation-fill-mode: forwards;
+				}
+
+				& summary, p {
+					background-color: var(--green);
+					border: 0.1em solid var(--green);
+				}
+			}
+
+			details[open]:nth-of-type(3) {
+				& summary {
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				& summary::before {
+					animation-name: rotate;
+					animation-duration: 1s;
+					animation-fill-mode: forwards;
+				}
+
+				& summary, p {
+					background-color: var(--yellow);
+					border: 0.1em solid var(--yellow);
+				}
+			}
+
+			@keyframes rotate {
+				from {transform: rotate(0);}
+				to {transform: rotate(45deg);}
 			}
 		</style>
 	</head>
